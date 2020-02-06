@@ -1,4 +1,5 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Atharva Nandanwar](README.md)
+* [Projects](projects.md)
 
