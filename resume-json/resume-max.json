@@ -1,0 +1,251 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Atharva Nandanwar",
+    "label": "Embedded Developer",
+    "image": "https://avatars.githubusercontent.com/u/34086657?s%E2%80%A600&u=1bec8c35ffdf16eef5388cf5e5040bc214e660e9&v=4",
+    "email": "atharva.nandanwar@colorado.edu",
+    "phone": "(720) 609-1525",
+    "url": "http://atharvanan1.github.io",
+    "summary": "Passionate about Embedded Systems. Driven to get hands dirty with low-level code and assist in designing Embedded Hardware.",
+    "location": {
+      "address": "2939 Marine St",
+      "postalCode": "CO 80303",
+      "city": "Boulder",
+      "countryCode": "US",
+      "region": "Colorado"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "atharvanan1",
+        "url": "https://github.com/atharvanan1"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "atharvanandanwar",
+        "url": "https://www.linkedin.com/in/atharvanandanwar/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Sighthound, Inc.",
+      "position": "Embedded Developer",
+      "startDate": "2021-07-01",
+      "highlights": [
+        "Managed NVIDIA Jetson based Hardware projects in difficult supply chain situation.",
+        "Designed new hardware revisions for added electrical circuit reliability, robustness towards supply chain constraints, and dealing with EMI issues.",
+        "Maintained Sighthound's fork of linux-tegra-4.9 based on OE4T (Open Embedded for Tegra).",
+        "Contributed to an OTA solution for device reflashing in the field based on meta-tegra (OE4T) and Mender.",
+        "Supported Embedded team with integration and management tasks related to entire EDGE stack from yocto-based custom distribution to managing docker containers and applications."
+      ],
+      "summary": "Sighthound is a solution provider in Artificial Intelligence space using Software and Hardware (Joined Sighthound as part of BoulderAI acquisition)",
+      "url": "https://www.linkedin.com/company/3345232",
+      "location": "Boulder, Colorado, United States"
+    },
+    {
+      "name": "Boulder AI",
+      "position": "Embedded Systems Engineer",
+      "startDate": "2021-05-31",
+      "endDate": "2021-06-30"
+    },
+    {
+      "name": "Boulder AI",
+      "position": "Embedded Systems Intern",
+      "startDate": "2020-05-23",
+      "endDate": "2021-04-28",
+      "highlights": [
+        "Maintained Yocto-based custom Linux distribution which facilitates development of AI/ML applications, device housekeeping, and internal provisioning.",
+        "Interfacing crucial hardware elements with software stack, such as device tree modifications for camera devices, GPIO interfacing for power management.",
+        "Designed circuit solutions for NVIDIA Jetson platform-based Camera devices with stringent power and size constraints."
+      ],
+      "summary": "BoulderAI (now acquired by Sighthound Inc.) provided Artificial Intelligence based solutions with strong and ruggedized hardware devices",
+      "url": "https://www.linkedin.com/company/24781385",
+      "location": "Boulder, Colorado, United States"
+    },
+    {
+      "name": "Indian Institute of Technology, Madras",
+      "position": "Project Associate",
+      "startDate": "2018-12-31",
+      "endDate": "2019-03-31",
+      "highlights": [
+        "Designed a 4-layer Printed Circuit Board solution with Power Management, Analog Buffers, Motor Drivers for testing various subsystems for this project.",
+        "Developed software solution for STM32F4xxx for accurate ADC operation, Timer based Quadrature Encoder control, CAN based communications, and controlling rest of the circuitry.",
+        "Implemented logging, system monitoring, and control using LabView."
+      ],
+      "summary": "Worked on Cargo Ground Buildup System sponsered by Lockheed Martin under Indian Institute of Technology, Madras as Embedded Systems Developer.",
+      "url": "https://www.linkedin.com/company/157267",
+      "location": "Chennai Area, India"
+    },
+    {
+      "name": "TVS Motor Company",
+      "position": "Intern",
+      "startDate": "2016-05-31",
+      "endDate": "2016-07-31",
+      "highlights": [
+        "Designed Printed Circuit Board solution with LED driver and LEDs for automotive environment.",
+        "Interfaced this circuit with automotive DC bus-bar and controlled using switches on the motor vehicle.",
+        "Designed protection solutions with robustness in harsh automotive environment in mind."
+      ],
+      "summary": "TVS Motor Company is one of the leading manufacturers of Motor Cycles in India.",
+      "url": "https://www.linkedin.com/company/23238",
+      "location": "Hosur Area, India"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Colorado Boulder",
+      "area": "Electrical Engineering - Embedded Systems Engineering",
+      "studyType": "Master of Science - MS",
+      "startDate": "2019-08-21",
+      "endDate": "2021-05-05",
+      "score": "3.81",
+      "courses": [
+        "Embedded System Design",
+        "Principles of Embedded Software",
+        "Practical PCB Design and Manufacture",
+        "Advanced Embedded Software Development",
+        "IoT Embedded Firmware",
+        "Advanced PCB Design and Development",
+        "Low Power Embedded System Design",
+        "Concurrent Programming",
+        "Programmable Embedded System Design",
+        "Special Topic: Design of an Implantable Device - Neuromodulation"
+      ]
+    },
+    {
+      "institution": "Bharatiya Vidya Bhavans Sardar Patel College Of Engineering",
+      "area": "Electrical Engineering",
+      "studyType": "Bachelor of Technology - BTech",
+      "startDate": "2013-07-13",
+      "endDate": "2017-06-05",
+      "score": "8.25"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Embedded Hardware",
+      "level": "Intermediate",
+      "keywords": [
+        "Altium Designer",
+        "Circuit Design",
+        "Power Circuit Design",
+        "Thermal Considerations for Circuits",
+        "Hardware Debugging using Oscilloscopes and Logic Analyzers"
+      ]
+    },
+    {
+      "name": "Embedded Software",
+      "level": "Intermediate",
+      "keywords": [
+        "C Language",
+        "ADC",
+        "I2C",
+        "SPI",
+        "UART",
+        "Timer",
+        "PWM",
+        "Bluetooth LE",
+        "Low Power Operations"
+      ]
+    },
+    {
+      "name": "Embedded Linux",
+      "level": "Master",
+      "keywords": [
+        "Yocto Project",
+        "Buildroot",
+        "SystemD Init",
+        "Bash",
+        "Device Tree",
+        "Linux Kernel Modules"
+      ]
+    },
+    {
+      "name": "Programmable Logic",
+      "level": "Beginner",
+      "keywords": [
+        "VHDL",
+        "Verilog",
+        "FPGA Development",
+        "Logic Timing Analysis and Interfacing"
+      ]
+    },
+    {
+      "name": "General Software",
+      "level": "Intermediate",
+      "keywords": [
+        "Python3",
+        "Docker",
+        "Git",
+        "GNU Make"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "fluency": "Full Professional",
+      "language": "English"
+    },
+    {
+      "fluency": "Native Speaker",
+      "language": "Hindi"
+    },
+    {
+      "fluency": "Native Speaker",
+      "language": "Marathi"
+    }
+  ],
+  "references": [
+    {
+      "name": "Darren Odom",
+      "reference": "Atharva is an extremely talented engineer. He can work on embedded software and hardware systems with a great amount of skill.   However, there is more to engineering than just being very technical and skilled in the art. Atharva possesses drive, determination, passion, attention to detail, inquisitiveness, and intuition that take his engineering abilities much further than your average engineer.  \nAdditionally, Atharva works really well with people and in a team setting. He managed vendors and worked with collaborative systems with finesse. \nI'd also just say that on a personal level, Atharva is one of the more fun, honest, and sincere people I've had the pleasure of working with.\nI have no doubts, whatever Atharva chooses to do in life, he's going to do really well with it. "
+    }
+  ],
+  "projects": [
+    {
+      "name": "Wireless Mini-Synthesizer",
+      "startDate": "2020-09-30",
+      "highlights": [
+        "Designed a Wireless Mini-Synthesizer from scratch - Hardware and Software design and development",
+        "Designed EFR32-platform based MCU for Bluetooth, Input/Output and Control operations, and sound control using off-the-shelf Codec chip based on I2C",
+        "Developed a power and charging solution for USB-based charging of a Lithium-Ion Battery",
+        "Added Capacitive Touch for Volume Control, F-antenna for power saving and range maximizing for extra perks"
+      ],
+      "url": "https://",
+      "endDate": "2020-12-31"
+    },
+    {
+      "name": "IoT Gateway Device",
+      "startDate": "2020-03-31",
+      "highlights": [
+        "Bringing up Yocto Build Environment for STM32MP1 microprocessor - consisting ARM A Core and M Core in same silicon.",
+        "Built a custom Linux distribution for STM32MP1.",
+        "Incorporating Azure services for IoT support on device by integrating the SDK into yocto environment."
+      ],
+      "url": "https://github.com/cu-ecen-5013/final-project-atharvanan1/wiki/Project-Overview",
+      "endDate": "2020-05-31"
+    },
+    {
+      "name": "Wireless AVR Chip Programmer",
+      "startDate": "2019-09-30",
+      "summary": "Test",
+      "highlights": [
+        "Developed a wireless AVR programmer that sends hex file over bluetooth.",
+        "Implemented a robust state machine to handle different states of communication, and errors.",
+        "Implemented CRC for robust error detection in communications.",
+        "Demonstrated ability to write code from scratch for SPI peripheral, UART peripheral, CRC peripheral on MSP432P401R",
+        "Designed an AVR based Embedded System taking into consideration Power Delivery, Oscillator Circuit, Reset Circuit, SPI programming interface."
+      ],
+      "url": "https://",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2017-12-24T15:53:00",
+    "theme": "elegant"
+  }
+}
