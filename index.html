@@ -1,644 +1,625 @@
-<!doctype html>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	<title>Atharva Nandanwar  - Embedded Developer</title>
-	<style>
-  	:root {
-  --accent:#BC1B39;
-  --anchor-color: #2C85B1;
-  --blue:#2C85B1;
-  --copy-color-light: #666666;
-  --copy-color: #242424;
-  --grey:#999999;
-  --light-grey:#ededed;
-  --white:#FFFFFF;
-  --base-font-size: 12pt;
-  --spacing-double: 1rem;
-  --spacing-small: .1rem;
-  --spacing: .5rem;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Atharva Nandanwar</title>
+      <meta name="description" content="Passionate about Embedded Systems. Driven to get hands dirty with low-level code and assist in designing Embedded Hardware.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
+    <style>:root {
+  color-scheme: light dark;
+
+  --color-background: #ffffff; /* White */
+  --color-muted: #f3f4f5; /* Light Gray 200 */
+  --color-primary: #191e23; /* Dark Gray 900 */
+  --color-secondary: #6c7781; /* Dark Gray 300 */
+  --color-accent: #ffb900; /* Accent Yellow */
+  --color-link: #46b450; /* Accent Green */
+
+  --scale-ratio: 1.25;
+  --scale0: 1rem;
+  --scale1: calc(var(--scale0) * var(--scale-ratio));
+  --scale2: calc(var(--scale1) * var(--scale-ratio));
+  --scale3: calc(var(--scale2) * var(--scale-ratio));
+  --scale4: calc(var(--scale3) * var(--scale-ratio));
+  --scale5: calc(var(--scale4) * var(--scale-ratio));
 }
-@media (min-width: 567px) {
+
+@media (prefers-color-scheme: dark) {
   :root {
-    --spacing-double: 1.5rem;
-    --spacing-small: .25rem;
-    --spacing: .75rem;
+    --color-background: #191e23; /* Dark Gray 900 */
+    --color-muted: #23282d; /* Dark Gray 800 */
+    --color-primary: #fbfbfc; /* Light Gray 100 */
+    --color-secondary: #ccd0d4; /* Light Gray 700 */
   }
 }
-@media print {
-  :root {
-    --anchor-color: #000000;
-    --base-font-size: 9pt;
-    --copy-color-light: #000000;
-    --copy-color: #000000;
-  }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
 }
 
 body {
-  color: var(--copy-color);
-  display: flex;
-  font: var(--base-font-size) "Open Sans", Helvetica, Arial, sans-serif;
-  justify-content: center;
-  line-height: 1.25;
-  -webkit-print-color-adjust: exact;
+  background: var(--color-background);
+  color: var(--color-primary);
+  display: grid;
+  font: 1em/1.5 Lato, sans-serif;
+  gap: 2em;
+  grid-template-columns:
+    [full-start]
+    1fr
+    [main-start side-start]
+    minmax(min-content, 12em)
+    [side-end content-start]
+    minmax(min-content, 36em)
+    [main-end content-end]
+    1fr
+    [full-end];
+  grid-template-rows: auto [content] 0;
+  margin-bottom: 4em;
 }
 
-em {
-  color: var(--grey);
+body::before {
+  content: '';
+  grid-column: full;
+  grid-row: content;
 }
 
-p {
-  font-size: 90%;
+ol,
+ul {
+  padding-left: 1em;
+}
+
+:not(.icon-list, .tag-list) > li + li {
+  margin-top: 0.4em;
+}
+
+li::marker,
+.network {
+  color: var(--color-secondary);
 }
 
 a {
-  color: var(--anchor-color);
-  font-weight: 400;
+  color: var(--color-link);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
-ul {
-  margin-bottom: 0;
+a:focus,
+a:hover {
+  color: var(--color-accent);
 }
 
-section {
-  margin: var(--spacing) 0 var(--spacing-double);
+h1,
+h2,
+h3,
+h5 {
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--scale5);
+}
+
+h2 {
+  color: var(--color-secondary);
+  font-size: var(--scale4);
+}
+
+h3 {
+  color: var(--color-accent);
+  font-size: var(--scale3);
+  grid-column: side;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: var(--scale2);
+}
+
+h5 {
+  font-size: var(--scale1);
+}
+
+h6 {
+  font-size: var(--scale0);
 }
 
 blockquote {
-  margin-bottom: 0 0 var(--spacing);
+  border-left: 0.2em solid var(--color-muted);
+  padding-left: 1em;
 }
 
-#resume {
-  background: var(--white);
-  margin: var(--spacing) var(--spacing-double);
-  max-width: 760px;
+cite {
+  color: var(--color-secondary);
+  font-style: inherit;
 }
 
-section.heading header h1 {
-  font-size: 180%;
-  font-weight: 300;
-  margin: 0;
+cite::before {
+  content: '— ';
 }
-section.heading header h2 {
-  font-size: 140%;
-  font-weight: 400;
-  margin: 0;
+
+svg {
+  margin-right: 0.2em;
+  vertical-align: -0.2em;
 }
-section.heading header h2::after {
-  display: none;
+
+.masthead {
+  background: var(--color-muted);
+  display: inherit;
+  gap: inherit;
+  grid-column: full;
+  grid-template-columns: inherit;
+  padding: 4em 0;
+  text-align: center;
 }
-section.heading header .contact {
+
+.masthead > *,
+section {
+  grid-column: main;
+}
+
+.masthead > img {
+  border-radius: 50%;
+  margin: 0 auto;
+  max-width: 12em;
+}
+
+article > * + *,
+blockquote > * + * {
+  margin-top: 0.6em;
+}
+
+.meta {
+  color: var(--color-secondary);
+}
+
+.stack {
+  display: grid;
+  gap: 1.5em;
+}
+
+.icon-list {
   display: flex;
-  flex-direction: column;
-  padding-bottom: var(--spacing);
-}
-@media (min-width: 567px) {
-  section.heading header .contact {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-section.heading header address {
-  font-size: 90%;
-  font-style: normal;
-  padding-bottom: var(--spacing);
-}
-section.heading .profiles {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: var(--spacing);
-}
-@media (min-width: 567px) {
-  section.heading .profiles {
-    flex-direction: row;
-    justify-content: start;
-  }
-}
-section.heading .profiles .profile.print {
-  display: none;
-}
-@media print {
-  section.heading .profiles .profile.print {
-    display: block;
-  }
-}
-section.heading .profiles strong {
-  margin: 0 var(--spacing-small) 0 0;
-}
-section.heading .profiles span {
-  margin: 0 var(--spacing-double) 0 0;
+  flex-wrap: wrap;
+  gap: 0.4em 1em;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
 }
 
-section.experience .item {
-  border-bottom: 1px solid var(--light-grey);
-  margin: 0 0 0.5em;
-  padding: 0 0 0.5em;
+.grid-list {
+  display: grid;
+  gap: 1em;
 }
-section.experience .item:last-child {
-  border-bottom: none;
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  list-style: none;
+  padding: 0;
 }
-section.experience .item header a,
-section.experience .item header h3 {
-  color: var(--copy-color);
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
+
+.tag-list > li {
+  background: var(--color-muted);
+  border-radius: 0.2em;
+  padding: 0.2em 0.6em;
 }
-@media (max-width: 566px) {
-  section.experience .item header .subhead {
+
+.bullet-item:not(:first-child)::before {
+  content: '· ';
+  margin: 0 0.2em;
+}
+
+@media print, (min-width: 48em) {
+  h3 {
+    text-align: right;
+    margin-bottom: inherit;
+  }
+
+  .masthead {
+    text-align: inherit;
+  }
+
+  .masthead > *,
+  section {
+    grid-column: content;
+  }
+
+  .masthead img {
+    grid-column: side;
+    grid-row: span 2;
+    max-width: 100%;
+  }
+
+  section {
+    display: contents;
+  }
+
+  .icon-list {
     flex-direction: column;
-    margin-bottom: var(--spacing-double);
+  }
+
+  .grid-list {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% - 1em) / 2), 1fr)
+    );
   }
 }
-section.experience .item .summary p {
-  margin-top: var(--spacing);
-}
-section.experience .item .summary p:first-child {
-  margin-top: var(--spacing-small);
-}
-section.experience .item .summary p:last-child {
-  margin-bottom: var(--spacing-small);
-}
-section.experience .item .position {
-  color: var(--copy-color-light);
-  font-size: 100%;
-  font-weight: 500;
-  margin: var(--spacing-small) 0;
-}
-section.experience .item .startDate,
-section.experience .item .endDate {
-  color: var(--grey);
-}
-section.skills .item {
-  margin: 0;
-  padding: 0 0 var(--spacing);
-}
-section.skills .item:first-child {
-  margin-top: var(--spacing);
-}
-section.skills .item:last-child {
-  margin-bottom: var(--spacing);
-}
-section.skills .item .name {
-  display: inline-block;
-  font-size: 90%;
-  font-weight: 600;
-  margin: 0 var(--spacing) 0 0;
-  text-transform: uppercase;
-  vertical-align: top;
-  white-space: nowrap;
-}
-section.skills .item .keywords {
-  display: inline-block;
-  font-size: 90%;
-  vertical-align: top;
-}
+</style>
+  </head>
+  <body>
+      <header class="masthead">
+          <img src="https://avatars.githubusercontent.com/u/34086657?s%E2%80%A600&amp;u&#x3D;1bec8c35ffdf16eef5388cf5e5040bc214e660e9&amp;v&#x3D;4" alt="">
+        <div>
+            <h1>Atharva Nandanwar</h1>
+            <h2>Software Engineer I</h2>
+        </div>
+          <article>
+            <p>Passionate about Embedded Systems. Driven to get hands dirty with low-level code and assist in designing Embedded Hardware.</p>
+          </article>
+        <ul class="icon-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Sioux Falls, US
+              </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <a href="mailto:atharvanandanwar@outlook.com">atharvanandanwar@outlook.com</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <a href="tel:7206091525">(720) 609-1525</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+              <a href="http://atharvanan1.github.io">atharvanan1.github.io</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <a href="https://github.com/atharvanan1">atharvanan1</a>
+                <span class="network">(GitHub)</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  <a href="https://www.linkedin.com/in/atharvanandanwar/">atharvanandanwar</a>
+                <span class="network">(LinkedIn)</span>
+            </li>
+        </ul>
+      </header>
 
-section.volunteering .item .position {
-  font-weight: 600;
-}
-section.volunteering .item header .subhead {
-  margin-top: var(--spacing);
-}
-section.projects .item strong {
-  color: var(--copy-color-light);
-  font-weight: 600;
-  display: inline-block;
-  padding-top: var(--spacing);
-}
-section.awards .item .title {
-  font-weight: 600;
-}
-section.publications .item .name {
-  font-weight: 600;
-}
-section.languages .language-item {
-  align-items: baseline;
-  display: flex;
-  justify-content: start;
-}
-section.languages .language-item:first-child {
-  margin-top: var(--spacing);
-}
-section.languages .language-item:last-child {
-  margin-bottom: var(--spacing);
-}
-section.languages .language-item .language {
-  display: inline-block;
-  font-size: 90%;
-  font-weight: 600;
-  margin: 0 var(--spacing) 0 0;
-  text-transform: uppercase;
-  vertical-align: top;
-  white-space: nowrap;
-}
-section.languages .language-item .fluency {
-  color: var(--copy-color-light);
-  font-style: italic;
-}
-
-section.interests .item {
-  margin-bottom: var(--spacing);
-}
-section.interests .item:last-child {
-  margin-bottom: var(--spacing);
-}
-section.interests .item .name {
-  display: inline-block;
-  font-size: 90%;
-  font-weight: 600;
-  margin: 0 var(--spacing) 0 0;
-  text-transform: uppercase;
-  vertical-align: top;
-  white-space: nowrap;
-}
-
-section.references .item blockquote {
-  font-style: italic;
-  margin-bottom: 0;
-  margin-left: var(--spacing);
-}
-section.references .item .name {
-  color: var(--copy-color-light);
-}
-
-section h2 {
-  color: var(--accent);
-  font-size: 135%;
-  font-weight: 400;
-  margin: 0 0 var(--spacing-double);
-  position: relative;
-  text-transform: uppercase;
-}
-section h2::after {
-  background: var(--accent);
-  bottom: -10px;
-  content: " ";
-  display: inline-block;
-  height: 3px;
-  left: 0;
-  position: absolute;
-  width: 2.5rem;
-}
-section header h3 {
-  margin: 0;
-  font-weight: 600;
-}
-
-section.experience .item .highlights, section.volunteering .highlights, section.projects .highlights,
-section.projects .keywords,
-section.projects .roles, section.education .item .courses {
-  font-size: 90%;
-  line-height: 1.3;
-  list-style: square;
-  margin: var(--spacing-small) 0 var(--spacing);
-  padding-left: var(--spacing-double);
-}
-
-section.experience .item, section.volunteering .item, section.projects .item, section.education .item, section.awards .item, section.publications .item, section.interests .item, section.references .item {
-  page-break-inside: avoid;
-}
-
-@media print {
-  section.heading .profiles .profile:not(.print), section.publications .item .website {
-    display: none;
-  }
-}
-
-section.experience .item header .subhead, section.volunteering .item header .subhead, section.projects .item header, section.education .item header, section.awards .item header, section.publications .item .subhead {
-  align-items: baseline;
-  display: flex;
-  justify-content: space-between;
-}
-@media (min-width: 567px) {
-  section.experience .item header .subhead, section.volunteering .item header .subhead, section.projects .item header, section.education .item header, section.awards .item header, section.publications .item .subhead {
-    flex-direction: row;
-  }
-}
-
-@media print {
-  body {
-    font-size: 11pt;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-	</style>
-	<style media="print">
-		body { font-size: 12px; }
-	</style>
-
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
-	
-	</head>
-  <body>	
-    <div id="resume">
-      <section id="heading" class="heading">
-        <header>
-          <h1>
-            Atharva Nandanwar
-          </h1>
-          <h2>Embedded Developer</h2>
-          <div class="summary"><p>Passionate about Embedded Systems. Driven to get hands dirty with low-level code and assist in designing Embedded Hardware.</p></div>
-          <div class="contact">
-            <span class="contact-detail"><a href="mailto:atharva.nandanwar@colorado.edu">atharva.nandanwar@colorado.edu</a></span>
-            <span class="contact-detail">(720) 609-1525</span>
-            <span class="contact-detail"><a href="http://atharvanan1.github.io" target="external">http://atharvanan1.github.io</a></span>
-          </div>
-          <address>
-            <span class="address-detail">2939 Marine St</span>
-            <span class="address-detail">Boulder,</span>
-            <span class="address-detail">Colorado</span>
-            <span class="address-detail">CO 80303</span>
-            <span class="address-detail">US</span>
-          </address>
-        </header>
-      
-        <div class="profiles">
-          <div class="profile">
-            <strong class="network">GitHub</strong>
-            <span class="username">
-              <a href="https://github.com/atharvanan1" target="external">@atharvanan1</a>
-            </span>
-          </div>
-          <div class="profile print">
-            <span class="username">
-              https://github.com/atharvanan1
-            </span>
-          </div>
-          <div class="profile">
-            <strong class="network">LinkedIn</strong>
-            <span class="username">
-              <a href="https://www.linkedin.com/in/atharvanandanwar/" target="external">@atharvanandanwar</a>
-            </span>
-          </div>
-          <div class="profile print">
-            <span class="username">
-              https://www.linkedin.com/in/atharvanandanwar/
-            </span>
-          </div>
+      <section id="work">
+        <h3>Work</h3>
+        <div class="stack">
+            <article>
+              <header>
+                <h4>Software Engineer I</h4>
+                <div class="meta">
+                  <div>
+                    <strong><a href="https://ravenind.com/">Raven Industries</a></strong>
+                  </div>
+                  <div>
+                    <time datetime="2022-11-14">Nov 2022</time> –
+                    Present
+                  </div>
+                    <div>Sioux Falls, South Dakota, United States</div>
+                </div>
+              </header>
+                <p>At Raven, our enduring vision to feed a growing world population using innovative technology has never been more relevant.</p>
+                <ul>
+                    <li><p>Working on low level microcontroller code</p></li>
+                    <li><p>Working towards Board Support Package integration with various boards</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4>Embedded Developer</h4>
+                <div class="meta">
+                  <div>
+                    <strong><a href="https://www.linkedin.com/company/3345232">Sighthound, Inc.</a></strong>
+                  </div>
+                  <div>
+                    <time datetime="2021-07-01">Jul 2021</time> –
+                    <time datetime="2022-11-09">Nov 2022</time>
+                  </div>
+                    <div>Boulder, Colorado, United States</div>
+                </div>
+              </header>
+                <p>Sighthound is a solution provider in Artificial Intelligence space using Software and Hardware (Joined Sighthound as part of BoulderAI acquisition)</p>
+                <ul>
+                    <li><p>Managed NVIDIA Jetson based Hardware projects in difficult supply chain situation.</p></li>
+                    <li><p>Designed new hardware revisions for added electrical circuit reliability, robustness towards supply chain constraints, and dealing with EMI issues.</p></li>
+                    <li><p>Maintained Sighthound's fork of linux-tegra-4.9 based on OE4T (Open Embedded for Tegra).</p></li>
+                    <li><p>Contributed to an OTA solution for device reflashing in the field based on meta-tegra (OE4T) and Mender.</p></li>
+                    <li><p>Supported Embedded team with integration and management tasks related to entire EDGE stack from yocto-based custom distribution to managing docker containers and applications.</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4>Embedded Systems Engineer</h4>
+                <div class="meta">
+                  <div>
+                    <strong>Boulder AI</strong>
+                  </div>
+                  <div>
+                    <time datetime="2021-05-31">May 2021</time> –
+                    <time datetime="2021-06-30">Jun 2021</time>
+                  </div>
+                </div>
+              </header>
+            </article>
+            <article>
+              <header>
+                <h4>Embedded Systems Intern</h4>
+                <div class="meta">
+                  <div>
+                    <strong><a href="https://www.linkedin.com/company/24781385">Boulder AI</a></strong>
+                  </div>
+                  <div>
+                    <time datetime="2020-05-23">May 2020</time> –
+                    <time datetime="2021-04-28">Apr 2021</time>
+                  </div>
+                    <div>Boulder, Colorado, United States</div>
+                </div>
+              </header>
+                <p>BoulderAI (now acquired by Sighthound Inc.) provided Artificial Intelligence based solutions with strong and ruggedized hardware devices</p>
+                <ul>
+                    <li><p>Maintained Yocto-based custom Linux distribution which facilitates development of AI/ML applications, device housekeeping, and internal provisioning.</p></li>
+                    <li><p>Interfacing crucial hardware elements with software stack, such as device tree modifications for camera devices, GPIO interfacing for power management.</p></li>
+                    <li><p>Designed circuit solutions for NVIDIA Jetson platform-based Camera devices with stringent power and size constraints.</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4>Project Associate</h4>
+                <div class="meta">
+                  <div>
+                    <strong><a href="https://www.linkedin.com/company/157267">Indian Institute of Technology, Madras</a></strong>
+                  </div>
+                  <div>
+                    <time datetime="2018-12-31">Dec 2018</time> –
+                    <time datetime="2019-03-31">Mar 2019</time>
+                  </div>
+                    <div>Chennai Area, India</div>
+                </div>
+              </header>
+                <p>Worked on Cargo Ground Buildup System sponsered by Lockheed Martin under Indian Institute of Technology, Madras as Embedded Systems Developer.</p>
+                <ul>
+                    <li><p>Designed a 4-layer Printed Circuit Board solution with Power Management, Analog Buffers, Motor Drivers for testing various subsystems for this project.</p></li>
+                    <li><p>Developed software solution for STM32F4xxx for accurate ADC operation, Timer based Quadrature Encoder control, CAN based communications, and controlling rest of the circuitry.</p></li>
+                    <li><p>Implemented logging, system monitoring, and control using LabView.</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4>Intern</h4>
+                <div class="meta">
+                  <div>
+                    <strong><a href="https://www.linkedin.com/company/23238">TVS Motor Company</a></strong>
+                  </div>
+                  <div>
+                    <time datetime="2016-05-31">May 2016</time> –
+                    <time datetime="2016-07-31">Jul 2016</time>
+                  </div>
+                    <div>Hosur Area, India</div>
+                </div>
+              </header>
+                <p>TVS Motor Company is one of the leading manufacturers of Motor Cycles in India.</p>
+                <ul>
+                    <li><p>Designed Printed Circuit Board solution with LED driver and LEDs for automotive environment.</p></li>
+                    <li><p>Interfaced this circuit with automotive DC bus-bar and controlled using switches on the motor vehicle.</p></li>
+                    <li><p>Designed protection solutions with robustness in harsh automotive environment in mind.</p></li>
+                </ul>
+            </article>
         </div>
       </section>
-      <section id="experience" class="experience">
-        <section class="item">
-          <h2>Experience</h2>
-          <header>
-            <h3 class="name"><a href="https://www.linkedin.com/company/3345232" target="external">Sighthound, Inc.</a></h3>
-            <div class="subhead">
-            <span class="position">Embedded Developer</span>
-            <small class="dates">Jul 2021
-             - Present</small>
+      <section id="education">
+        <h3>Education</h3>
+        <div class="stack">
+            <article>
+              <header>
+                <h4>University of Colorado Boulder</h4>
+                <div class="meta">
+                    <strong>Electrical Engineering - Embedded Systems Engineering</strong>
+                  <div>
+                    <time datetime="2019-08-21">Aug 2019</time> –
+                    <time datetime="2021-05-05">May 2021</time>
+                  </div>
+                </div>
+              </header>
+                <p>Master of Science - MS</p>
+                <h5>Courses</h5>
+                <ul>
+                    <li><p>Embedded System Design</p></li>
+                    <li><p>Principles of Embedded Software</p></li>
+                    <li><p>Practical PCB Design and Manufacture</p></li>
+                    <li><p>Advanced Embedded Software Development</p></li>
+                    <li><p>IoT Embedded Firmware</p></li>
+                    <li><p>Advanced PCB Design and Development</p></li>
+                    <li><p>Low Power Embedded System Design</p></li>
+                    <li><p>Concurrent Programming</p></li>
+                    <li><p>Programmable Embedded System Design</p></li>
+                    <li><p>Special Topic: Design of an Implantable Device - Neuromodulation</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4>Bharatiya Vidya Bhavans Sardar Patel College Of Engineering</h4>
+                <div class="meta">
+                    <strong>Electrical Engineering</strong>
+                  <div>
+                    <time datetime="2013-07-13">Jul 2013</time> –
+                    <time datetime="2017-06-05">Jun 2017</time>
+                  </div>
+                </div>
+              </header>
+                <p>Bachelor of Technology - BTech</p>
+            </article>
+        </div>
+      </section>
+      <section id="projects">
+        <h3>Projects</h3>
+        <div class="stack">
+            <article>
+              <header>
+                <h4><a href="https://">Wireless Mini-Synthesizer</a></h4>
+                <div class="meta">
+                  <div>
+                  </div>
+                  <div>
+                    <time datetime="2020-09-30">Sep 2020</time> –
+                    <time datetime="2020-12-31">Dec 2020</time>
+                  </div>
+                </div>
+              </header>
+                <ul>
+                    <li><p>Designed a Wireless Mini-Synthesizer from scratch - Hardware and Software design and development</p></li>
+                    <li><p>Designed EFR32-platform based MCU for Bluetooth, Input/Output and Control operations, and sound control using off-the-shelf Codec chip based on I2C</p></li>
+                    <li><p>Developed a power and charging solution for USB-based charging of a Lithium-Ion Battery</p></li>
+                    <li><p>Added Capacitive Touch for Volume Control, F-antenna for power saving and range maximizing for extra perks</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4><a href="https://github.com/cu-ecen-5013/final-project-atharvanan1/wiki/Project-Overview">IoT Gateway Device</a></h4>
+                <div class="meta">
+                  <div>
+                  </div>
+                  <div>
+                    <time datetime="2020-03-31">Mar 2020</time> –
+                    <time datetime="2020-05-31">May 2020</time>
+                  </div>
+                </div>
+              </header>
+                <ul>
+                    <li><p>Bringing up Yocto Build Environment for STM32MP1 microprocessor - consisting ARM A Core and M Core in same silicon.</p></li>
+                    <li><p>Built a custom Linux distribution for STM32MP1.</p></li>
+                    <li><p>Incorporating Azure services for IoT support on device by integrating the SDK into yocto environment.</p></li>
+                </ul>
+            </article>
+            <article>
+              <header>
+                <h4><a href="https://">Wireless AVR Chip Programmer</a></h4>
+                <div class="meta">
+                  <div>
+                  </div>
+                  <div>
+                    <time datetime="2019-09-30">Sep 2019</time> –
+                    <time datetime="2019-12-31">Dec 2019</time>
+                  </div>
+                </div>
+              </header>
+                <ul>
+                    <li><p>Developed a wireless AVR programmer that sends hex file over bluetooth.</p></li>
+                    <li><p>Implemented a robust state machine to handle different states of communication, and errors.</p></li>
+                    <li><p>Implemented CRC for robust error detection in communications.</p></li>
+                    <li><p>Demonstrated ability to write code from scratch for SPI peripheral, UART peripheral, CRC peripheral on MSP432P401R</p></li>
+                    <li><p>Designed an AVR based Embedded System taking into consideration Power Delivery, Oscillator Circuit, Reset Circuit, SPI programming interface.</p></li>
+                </ul>
+            </article>
+        </div>
+      </section>
+      <section id="skills">
+        <h3>Skills</h3>
+        <div class="grid-list">
+            <div>
+                <h4>Embedded Hardware</h4>
+                <ul class="tag-list">
+                    <li>Altium Designer</li>
+                    <li>Circuit Design</li>
+                    <li>Power Circuit Design</li>
+                    <li>Thermal Considerations for Circuits</li>
+                    <li>Hardware Debugging using Oscilloscopes and Logic Analyzers</li>
+                </ul>
             </div>
-          </header>
-          <div class="summary"><p>Sighthound is a solution provider in Artificial Intelligence space using Software and Hardware (Joined Sighthound as part of BoulderAI acquisition)</p></div>
-          <ul class="highlights">
-            <li>Managed NVIDIA Jetson based Hardware projects in difficult supply chain situation.</li>
-            <li>Designed new hardware revisions for added electrical circuit reliability, robustness towards supply chain constraints, and dealing with EMI issues.</li>
-            <li>Maintained Sighthound&#x27;s fork of linux-tegra-4.9 based on OE4T (Open Embedded for Tegra).</li>
-            <li>Contributed to an OTA solution for device reflashing in the field based on meta-tegra (OE4T) and Mender.</li>
-            <li>Supported Embedded team with integration and management tasks related to entire EDGE stack from yocto-based custom distribution to managing docker containers and applications.</li>
-          </ul>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name">Boulder AI</h3>
-            <div class="subhead">
-            <span class="position">Embedded Systems Engineer</span>
-            <small class="dates">May 2021
-             - Jun 2021</small>
+            <div>
+                <h4>Embedded Software</h4>
+                <ul class="tag-list">
+                    <li>C Language</li>
+                    <li>ADC</li>
+                    <li>I2C</li>
+                    <li>SPI</li>
+                    <li>UART</li>
+                    <li>Timer</li>
+                    <li>PWM</li>
+                    <li>Bluetooth LE</li>
+                    <li>Low Power Operations</li>
+                </ul>
             </div>
-          </header>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name"><a href="https://www.linkedin.com/company/24781385" target="external">Boulder AI</a></h3>
-            <div class="subhead">
-            <span class="position">Embedded Systems Intern</span>
-            <small class="dates">May 2020
-             - Apr 2021</small>
+            <div>
+                <h4>Embedded Linux</h4>
+                <ul class="tag-list">
+                    <li>Yocto Project</li>
+                    <li>Buildroot</li>
+                    <li>SystemD Init</li>
+                    <li>Bash</li>
+                    <li>Device Tree</li>
+                    <li>Linux Kernel Modules</li>
+                </ul>
             </div>
-          </header>
-          <div class="summary"><p>BoulderAI (now acquired by Sighthound Inc.) provided Artificial Intelligence based solutions with strong and ruggedized hardware devices</p></div>
-          <ul class="highlights">
-            <li>Maintained Yocto-based custom Linux distribution which facilitates development of AI/ML applications, device housekeeping, and internal provisioning.</li>
-            <li>Interfacing crucial hardware elements with software stack, such as device tree modifications for camera devices, GPIO interfacing for power management.</li>
-            <li>Designed circuit solutions for NVIDIA Jetson platform-based Camera devices with stringent power and size constraints.</li>
-          </ul>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name"><a href="https://www.linkedin.com/company/157267" target="external">Indian Institute of Technology, Madras</a></h3>
-            <div class="subhead">
-            <span class="position">Project Associate</span>
-            <small class="dates">Dec 2018
-             - Mar 2019</small>
+            <div>
+                <h4>Programmable Logic</h4>
+                <ul class="tag-list">
+                    <li>VHDL</li>
+                    <li>Verilog</li>
+                    <li>FPGA Development</li>
+                    <li>Logic Timing Analysis and Interfacing</li>
+                </ul>
             </div>
-          </header>
-          <div class="summary"><p>Worked on Cargo Ground Buildup System sponsered by Lockheed Martin under Indian Institute of Technology, Madras as Embedded Systems Developer.</p></div>
-          <ul class="highlights">
-            <li>Designed a 4-layer Printed Circuit Board solution with Power Management, Analog Buffers, Motor Drivers for testing various subsystems for this project.</li>
-            <li>Developed software solution for STM32F4xxx for accurate ADC operation, Timer based Quadrature Encoder control, CAN based communications, and controlling rest of the circuitry.</li>
-            <li>Implemented logging, system monitoring, and control using LabView.</li>
-          </ul>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name"><a href="https://www.linkedin.com/company/23238" target="external">TVS Motor Company</a></h3>
-            <div class="subhead">
-            <span class="position">Intern</span>
-            <small class="dates">May 2016
-             - Jul 2016</small>
+            <div>
+                <h4>General Software</h4>
+                <ul class="tag-list">
+                    <li>Python3</li>
+                    <li>Docker</li>
+                    <li>Git</li>
+                    <li>GNU Make</li>
+                </ul>
             </div>
-          </header>
-          <div class="summary"><p>TVS Motor Company is one of the leading manufacturers of Motor Cycles in India.</p></div>
-          <ul class="highlights">
-            <li>Designed Printed Circuit Board solution with LED driver and LEDs for automotive environment.</li>
-            <li>Interfaced this circuit with automotive DC bus-bar and controlled using switches on the motor vehicle.</li>
-            <li>Designed protection solutions with robustness in harsh automotive environment in mind.</li>
-          </ul>
-        </section>
-      </section>
-      <section id="skills" class="skills">
-        <div class="item">
-          <h2>Skills</h2>
-          <div class="name">Embedded Hardware</div>
-          <div class="keywords">
-            Altium Designer,
-            Circuit Design,
-            Power Circuit Design,
-            Thermal Considerations for Circuits,
-            Hardware Debugging using Oscilloscopes and Logic Analyzers
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">Embedded Software</div>
-          <div class="keywords">
-            C Language,
-            ADC,
-            I2C,
-            SPI,
-            UART,
-            Timer,
-            PWM,
-            Bluetooth LE,
-            Low Power Operations
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">Embedded Linux</div>
-          <div class="keywords">
-            Yocto Project,
-            Buildroot,
-            SystemD Init,
-            Bash,
-            Device Tree,
-            Linux Kernel Modules
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">Programmable Logic</div>
-          <div class="keywords">
-            VHDL,
-            Verilog,
-            FPGA Development,
-            Logic Timing Analysis and Interfacing
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">General Software</div>
-          <div class="keywords">
-            Python3,
-            Docker,
-            Git,
-            GNU Make
-          </div>
         </div>
       </section>
-      <section id="projects" class="projects">
-        <section class="item">
-          <h2>Projects</h2>
-          <header>
-            <h3 class="name">Wireless Mini-Synthesizer</h3>
-            <small class="subhead">Sep 2020
-             - Dec 2020</small>
-          </header>
-          <strong>Highlights</strong>
-          <ul class="highlights">
-            <li>Designed a Wireless Mini-Synthesizer from scratch - Hardware and Software design and development</li>
-            <li>Designed EFR32-platform based MCU for Bluetooth, Input/Output and Control operations, and sound control using off-the-shelf Codec chip based on I2C</li>
-            <li>Developed a power and charging solution for USB-based charging of a Lithium-Ion Battery</li>
-            <li>Added Capacitive Touch for Volume Control, F-antenna for power saving and range maximizing for extra perks</li>
-          </ul>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name">IoT Gateway Device</h3>
-            <small class="subhead">Mar 2020
-             - May 2020</small>
-          </header>
-          <strong>Highlights</strong>
-          <ul class="highlights">
-            <li>Bringing up Yocto Build Environment for STM32MP1 microprocessor - consisting ARM A Core and M Core in same silicon.</li>
-            <li>Built a custom Linux distribution for STM32MP1.</li>
-            <li>Incorporating Azure services for IoT support on device by integrating the SDK into yocto environment.</li>
-          </ul>
-        </section>
-        <section class="item">
-          <header>
-            <h3 class="name">Wireless AVR Chip Programmer</h3>
-            <small class="subhead">Sep 2019
-             - Dec 2019</small>
-          </header>
-          <div class="summary"><p>Test</p></div>
-          <strong>Highlights</strong>
-          <ul class="highlights">
-            <li>Developed a wireless AVR programmer that sends hex file over bluetooth.</li>
-            <li>Implemented a robust state machine to handle different states of communication, and errors.</li>
-            <li>Implemented CRC for robust error detection in communications.</li>
-            <li>Demonstrated ability to write code from scratch for SPI peripheral, UART peripheral, CRC peripheral on MSP432P401R</li>
-            <li>Designed an AVR based Embedded System taking into consideration Power Delivery, Oscillator Circuit, Reset Circuit, SPI programming interface.</li>
-          </ul>
-        </section>
-      </section>
-      <section id="education" class="education">
-        <div class="item">
-          <h2>Education</h2>
-          <header>
-              <h3 class="name">University of Colorado Boulder</h3>
-            <small class="dates">
-              <span class="startDate">Aug 2019</span>
-              <span class="endDate"> - May 2021</span>
-            </small>
-          </header>
-          <div class="qualification">
-            <span class="studyType">Master of Science - MS</span>
-            <span class="area">Electrical Engineering - Embedded Systems Engineering</span>
-            <span class="gpa">GPA: 3.81</span>
-            <br>
-            <strong>Courses</strong>
-            <ul class="courses">
-              <li>Embedded System Design</li>
-              <li>Principles of Embedded Software</li>
-              <li>Practical PCB Design and Manufacture</li>
-              <li>Advanced Embedded Software Development</li>
-              <li>IoT Embedded Firmware</li>
-              <li>Advanced PCB Design and Development</li>
-              <li>Low Power Embedded System Design</li>
-              <li>Concurrent Programming</li>
-              <li>Programmable Embedded System Design</li>
-              <li>Special Topic: Design of an Implantable Device - Neuromodulation</li>
-            </ul>
-          </div>
-        </div>
-        <div class="item">
-          <header>
-              <h3 class="name">Bharatiya Vidya Bhavans Sardar Patel College Of Engineering</h3>
-            <small class="dates">
-              <span class="startDate">Jul 2013</span>
-              <span class="endDate"> - Jun 2017</span>
-            </small>
-          </header>
-          <div class="qualification">
-            <span class="studyType">Bachelor of Technology - BTech</span>
-            <span class="area">Electrical Engineering</span>
-            <span class="gpa">GPA: 8.25</span>
-          </div>
+      <section id="languages">
+        <h3>Languages</h3>
+        <div class="grid-list">
+            <div>
+                <h4>English</h4>
+              Full Professional
+            </div>
+            <div>
+                <h4>Hindi</h4>
+              Native Speaker
+            </div>
+            <div>
+                <h4>Marathi</h4>
+              Native Speaker
+            </div>
         </div>
       </section>
-      <section id="languages" class="languages">
-        <div class="item">
-          <h2>Languages</h2>
-          <div class="language-item">
-            <span class="language">English:</span>
-            <span class="fluency">Full Professional</span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="language-item">
-            <span class="language">Hindi:</span>
-            <span class="fluency">Native Speaker</span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="language-item">
-            <span class="language">Marathi:</span>
-            <span class="fluency">Native Speaker</span>
-          </div>
+      <section id="references">
+        <h3>References</h3>
+        <div class="stack">
+              <blockquote>
+                <p>Atharva is an extremely talented engineer. He can work on embedded software and hardware systems with a great amount of skill.   However, there is more to engineering than just being very technical and skilled in the art. Atharva possesses drive, determination, passion, attention to detail, inquisitiveness, and intuition that take his engineering abilities much further than your average engineer.<br />
+    Additionally, Atharva works really well with people and in a team setting. He managed vendors and worked with collaborative systems with finesse.
+    I'd also just say that on a personal level, Atharva is one of the more fun, honest, and sincere people I've had the pleasure of working with.
+    I have no doubts, whatever Atharva chooses to do in life, he's going to do really well with it.</p>
+                  <p>
+                    <cite>Darren Odom</cite>
+                  </p>
+              </blockquote>
         </div>
       </section>
-      <section id="references" class="references">
-        <div class="item">
-          <h2>References</h2>
-          <blockquote class="reference">Atharva is an extremely talented engineer. He can work on embedded software and hardware systems with a great amount of skill.   However, there is more to engineering than just being very technical and skilled in the art. Atharva possesses drive, determination, passion, attention to detail, inquisitiveness, and intuition that take his engineering abilities much further than your average engineer.  
-      Additionally, Atharva works really well with people and in a team setting. He managed vendors and worked with collaborative systems with finesse. 
-      I&#x27;d also just say that on a personal level, Atharva is one of the more fun, honest, and sincere people I&#x27;ve had the pleasure of working with.
-      I have no doubts, whatever Atharva chooses to do in life, he&#x27;s going to do really well with it. </blockquote>
-          <div class="name">— Darren Odom</div>
-        </div>
-      </section>
-    </div>
-	</body>
+  </body>
 </html>

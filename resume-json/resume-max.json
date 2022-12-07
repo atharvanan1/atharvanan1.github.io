@@ -2,18 +2,16 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Atharva Nandanwar",
-    "label": "Embedded Developer",
+    "label": "Software Engineer I",
     "image": "https://avatars.githubusercontent.com/u/34086657?s%E2%80%A600&u=1bec8c35ffdf16eef5388cf5e5040bc214e660e9&v=4",
-    "email": "atharva.nandanwar@colorado.edu",
+    "email": "atharvanandanwar@outlook.com",
     "phone": "(720) 609-1525",
     "url": "http://atharvanan1.github.io",
     "summary": "Passionate about Embedded Systems. Driven to get hands dirty with low-level code and assist in designing Embedded Hardware.",
     "location": {
-      "address": "2939 Marine St",
-      "postalCode": "CO 80303",
-      "city": "Boulder",
+      "city": "Sioux Falls",
       "countryCode": "US",
-      "region": "Colorado"
+      "region": "South Dakota"
     },
     "profiles": [
       {
@@ -30,9 +28,22 @@
   },
   "work": [
     {
+      "name": "Raven Industries",
+      "position": "Software Engineer I",
+      "startDate": "2022-11-14",
+      "highlights": [
+        "Working on low level microcontroller code",
+        "Working towards Board Support Package integration with various boards"
+      ],
+      "summary": "At Raven, our enduring vision to feed a growing world population using innovative technology has never been more relevant.",
+      "url": "https://ravenind.com/",
+      "location": "Sioux Falls, South Dakota, United States"
+    },
+    {
       "name": "Sighthound, Inc.",
       "position": "Embedded Developer",
       "startDate": "2021-07-01",
+      "endDate": "2022-11-09",
       "highlights": [
         "Managed NVIDIA Jetson based Hardware projects in difficult supply chain situation.",
         "Designed new hardware revisions for added electrical circuit reliability, robustness towards supply chain constraints, and dealing with EMI issues.",
